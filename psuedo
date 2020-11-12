@@ -1,0 +1,47 @@
+this will be a program written in go, depending upon a scalable,
+csv data structure:
+
+-------------------------------
+client
+-------------------------------
+ |              /|\
+ | 1. asks       | 3.
+ | server        | responds with
+ | for tasks     | current task
+ |               | and next task
+\|/              |
+-------------------------------
+server
+-------------------------------
+    2.
+        finds data
+        for client
+        in fs
+
+
+Step 1: The Client
+---
+The client will send a GET request to the server, check for valid values,
+then put them up on the page along with other useful information. It will
+access a standard 'static fs' hosted by the server in order to separate
+'template' code (rather template website) from user-specific elements of
+the website, such as settings and tasks.
+
+Step 2: The Server
+---
+The server will have to keep everything persistent. It will need to divide into
+two different parts: the fileserver for the client to connect to, as well as the
+API to send and receive GET and POST requests.
+
+Step 3: FileServer
+---
+Quickly shoot up the fileserver, it should be relatively easy to create, just
+read over the golang documentation on these types of servers.
+
+Step 4: User Sessions
+---
+Find a way to log users in. Each user will only have access to their own,
+self-set tasks. They'll be stored in a file corresponding to their username.
+(https://astaxie.gitbooks.io/build-web-application-with-golang/content/en/06.2.html)
+(https://www.sohamkamani.com/blog/2018/03/25/golang-session-authentication/)
+(https://golang.org/pkg/net/http/)
